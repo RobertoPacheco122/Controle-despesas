@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Despesas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <link type="text/css" rel="stylesheet" href="./assets/css/style.css">
+  <link type="text/css" rel="stylesheet" href="./assets/css/reset.css">
+
+</head>
+<body class="body">
+  <div class="page container-1">
+    <header class="header">
+      <div class="header--container">
+        <h1 class="header__title">Controle de despesas</h1>
+      </div>
+    </header>
+    <main class="main">
+      <div class="main--container">
+        <section class="main__section main__section--balance">
+          <h2 class="main__subtitle uppercase">Saldo atual</h2>
+          <span class="main__balance">R$ 0.00</span>
+        </section>
+        <section class="main__section main__section--values">
+          <div class="main--container--values">
+            <h2 class="main__subtitle uppercase">Receitas</h2>
+            <span class="main__income">R$ 0.00</span>
+          </div>
+          <div class="main--container--values">
+            <h2 class="main__subtitle uppercase">Despesas</h2>
+            <span class="main__expenses">R$ 0.00</span>
+          </div>
+        </section>
+        <section class="main__section main__section--transactions">
+          <h2 class="main__subtitle underline">Transações</h2>
+          <ul class="main__list">
+          </ul>
+        </section>
+        <section class="main__section main__section--addTransactions">
+          <h2 class="main__subtitle underline">Adicionar transação</h2>
+          <form action="" class="main__form">
+            <label for="name" class="main__label">Nome</label>
+            <input required type="text" name="name" id="name" class="main__input" placeholder="Nome da transação">
+            <label for="value" class="main__label">Valor</label>
+            <input required type="number" name="value" id="value" class="main__input" placeholder="Valor da transação">
+            <input type="submit" class="main__button--submit" value="Adicionar">
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="./assets/js/script.min.js"></script>
+</body>
+</html>

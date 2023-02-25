@@ -1,0 +1,136 @@
+:root {
+  --font-default: "Lato", sans-serif;
+  --body-bg: #f7f7f7;
+  --section-values-bg: #ffffff;
+  --transactions-bg: #ffffff;
+  --balance-color: #2e75cc;
+  --income-color: #2ecc71;
+  --expenses-color: #c0392b;
+}
+
+.body {
+  background-color: var(--body-bg);
+}
+
+.page {
+  font-family: var(--font-default);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-1 {
+  padding: 0 30%;
+}
+
+.header--container {
+  margin: 2rem 0 3rem 0;
+}
+
+.header__title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.main__section {
+  margin-bottom: 2rem;
+}
+
+.main__subtitle,
+.main__income,
+.main__expenses {
+  font-weight: bold;
+  font-size: 1.4rem;
+  line-height: 2.5rem;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.main__balance {
+  color: var(--balance-color);
+  font-size: 2.2rem;
+}
+
+.main__section--values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  background-color: var(--section-values-bg);
+  border: 3px solid rgb(197, 197, 197);
+  border-top: 0;
+}
+
+.main--container--values {
+  padding: 2rem;
+  text-align: center;
+}
+
+.main__income {
+  color: var(--income-color);
+}
+
+.main__expenses {
+  color: var(--expenses-color);
+}
+
+.underline {
+  border-bottom: 3px solid rgb(175, 173, 173);
+  margin-bottom: 1rem;
+}
+
+.main__transaction--card {
+  background-color: var(--transactions-bg);
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 10px;
+  border: 1px solid rgb(202, 200, 200);
+}
+
+.main--transaction--content {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.expenses {
+  background-color: var(--expenses-color);
+}
+
+.income {
+  background-color: var(--income-color);
+}
+
+.main__label {
+  display: block;
+  margin: 0.8rem 0;
+}
+
+.main__input {
+  padding: 0.6rem;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+}
+
+.main__button--submit {
+  background-color: #9c88ff;
+  border: 0;
+  color: #ffffff;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  transition: 0.5s;
+}
+
+.main__button--submit:hover {
+  cursor: pointer;
+  background-color: #8872f7;
+}
+
+.main__input,
+.main__button--submit {
+  width: 100%;
+}
