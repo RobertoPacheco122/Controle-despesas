@@ -25,7 +25,7 @@
 }
 
 .header--container {
-  margin: 2rem 0 3rem 0;
+  margin: 2rem 0;
 }
 
 .header__title {
@@ -133,4 +133,10 @@
 .main__input,
 .main__button--submit {
   width: 100%;
+}
+
+.main__text--attention {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--balance-color);
 }
