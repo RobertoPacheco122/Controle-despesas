@@ -7,12 +7,16 @@ const expense = document.querySelector(".main__expenses");
 class Transaction {
   static transactionsAcc = 0;
 
-  constructor(nameInput, amountInput) {
-    this.name = document.querySelector(nameInput).value;
-    this.amount = document.querySelector(amountInput).value;
-    this.id = Transaction.transactionsAcc;
+  constructor(nameInput, amountInput, transactionID) {
+    this.name = nameInput;
+    this.amount = amountInput;
 
-    Transaction.transactionsAcc += 1;
+    if (transactionID === undefined) {
+      this.id = Transaction.transactionsAcc;
+      Transaction.transactionsAcc += 1;
+    } else {
+      this.id = transactionID;
+    }
   }
 
   static getBalanceInfo() {
@@ -63,6 +67,22 @@ class Transaction {
     actual.innerText = `R$ ${newActualTotal}`;
   }
 
+  static retrieveTransactions() {
+    const keys = Object.keys(localStorage);
+
+    keys.forEach((key) => {
+      const transactionData = JSON.parse(localStorage[key]);
+      const { name, amount, id } = transactionData;
+      console.log(transactionData);
+      const transaction = new Transaction(name, amount, id);
+      transaction.init();
+    });
+  }
+
+  static excludeTransactionFromLocal(transactionID) {
+    localStorage.removeItem(transactionID);
+  }
+
   getTransactionType() {
     if (this.amount.includes("-")) return "expense";
     return "income";
@@ -102,6 +122,7 @@ class Transaction {
       }
 
       event.currentTarget.remove();
+      Transaction.excludeTransactionFromLocal(this.id);
     });
   }
 
@@ -116,19 +137,27 @@ class Transaction {
     this.addTransactionCardEvent(card);
   }
 
+  addTransactionIntoLocal() {
+    localStorage.setItem(this.id, JSON.stringify(this));
+  }
+
   init() {
     if (this.name && this.amount) {
       this.addTransactionIntoDom();
+      this.addTransactionIntoLocal();
     }
-
     return this;
   }
 }
 
 function handleButton(event) {
   event.preventDefault();
-  const transaction = new Transaction("#name", "#value");
+  const nameInput = document.querySelector("#name").value;
+  const valueInput = document.querySelector("#value").value;
+  const transaction = new Transaction(nameInput, valueInput);
   transaction.init();
 }
+
+Transaction.retrieveTransactions();
 
 button.addEventListener("click", handleButton);
